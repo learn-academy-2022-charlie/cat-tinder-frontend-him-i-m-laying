@@ -1,3 +1,31 @@
+As a developer, create an application where a user can see cute cats looking for friends.✅    
+As a user, I can see a list of cats. I can click on a cat and see more information about that cat. 
+I can also add cats to the list of cats looking for friends. 
+add the ability to remove a cat from the list as well as 
+edit cat information.
+
+
+
+```
+As a developer, I can create a directory in src called pages, components, and assets. ✅  
+--Created new directories in src with pages, components, and assets.
+
+As a developer, I can create a file called Header.js, Footer.js, Home.js, CatIndex.js, CatShow.js, CatNew.js, CatEdit.js, NotFound.js in the pages directory.✅ 
+
+As a developer, I can add a file to src called mockCats.js and add an array of cat objects.
+
+As a developer, I can add Reactstrap to my application.
+As a developer, I can use Reactstrap to create the header UI.
+As a developer, I can use Reactstrap to create the footer UI.
+As a developer, I can import the header and footer to all the page components.
+As a developer, I can add some styling to the Home component.
+As a developer, I can add react-router-dom@5.3.0 to my application.
+As a developer, I can add routes to be able to navigate manually to all pages.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
