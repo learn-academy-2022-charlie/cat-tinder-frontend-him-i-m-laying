@@ -11,10 +11,29 @@ As a developer, I can create a directory in src called pages, components, and as
 --Created new directories in src with pages, components, and assets.
 
 As a developer, I can create a file called Header.js, Footer.js, Home.js, CatIndex.js, CatShow.js, CatNew.js, CatEdit.js, NotFound.js in the pages directory.✅ 
+-- See Trello screen shot 
 
-As a developer, I can add a file to src called mockCats.js and add an array of cat objects.
+As a developer, I can add a file to src called mockDogs.js and add an array of dog objects.✅ 
+-- mock info from syllabus and edited for our needs
 
 As a developer, I can add Reactstrap to my application.
+   This adds the dependencies for Reactstrap and Bootstrap via yarn 
+        $ yarn add bootstrap
+        $ yarn add reactstrap
+        
+    This adds an import to index.js 
+        Add to src/index.js: import 'bootstrap/dist/css/bootstrap.min.css'
+   
+    This adds the react-router to the package.json file.
+        $ yarn add react-router-dom@5.3.0
+
+    This allows us to import routing components to our application.
+        import {
+        BrowserRouter as Router,
+        Route,
+        Switch
+        }  from 'react-router-dom'
+
 As a developer, I can use Reactstrap to create the header UI.
 As a developer, I can use Reactstrap to create the footer UI.
 As a developer, I can import the header and footer to all the page components.
