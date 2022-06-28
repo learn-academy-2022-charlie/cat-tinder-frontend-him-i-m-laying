@@ -7,10 +7,6 @@ import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import mockDogs from './mockDogs'
 
-// class App extends Component{
-//   
-
-
 
 export default class App extends Component {
   constructor(props){
