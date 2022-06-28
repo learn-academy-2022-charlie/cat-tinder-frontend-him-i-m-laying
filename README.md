@@ -1,12 +1,3 @@
-As a developer, create an application where a user can see cute cats looking for friends.✅    
-As a user, I can see a list of cats. I can click on a cat and see more information about that cat. 
-I can also add cats to the list of cats looking for friends. 
-add the ability to remove a cat from the list as well as 
-edit cat information.
-
-
-
-```
 As a developer, I can create a directory in src called pages, components, and assets. ✅  
 --Created new directories in src with pages, components, and assets.
 
@@ -38,8 +29,20 @@ As a developer, I can use Reactstrap to create the header UI and footer UI.
 
 As a developer, I can import the header and footer to all the page components.
 As a developer, I can add some styling to the Home component.
-As a developer, I can add react-router-dom@5.3.0 to my application.
 As a developer, I can add routes to be able to navigate manually to all pages.
+
+Challenge: Cat Tinder Tests
+Add Enzyme to your application
+Add a test file for the Home, Header, Footer, and NotFound components with the .test.js extension.
+Create a test for each page, checking that the page is rendering by asserting against a single JSX element.
+Stretch Challenges
+As a developer, I can make my tests more DRY by declaring reusable variables in global scope.
+Create an additional test for the component Home.js that checks for the first img tag and all of its props.
+Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
+
+
+
+
 
 
 # Getting Started with Create React App

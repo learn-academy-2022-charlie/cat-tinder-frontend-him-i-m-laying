@@ -24,19 +24,20 @@ export default class App extends Component {
   render() {
     return (
       <> 
+      <h1>Welcome To Dog Tinder</h1>
+
       <Router>
       <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/DogIndex" component={DogIndex} />
-      <Route path="/DogShow" component={DogShow} />
-      <Route path="/DogNew" component={DogNew} />
-      <Route path="/DogEdit" component={DogEdit} />
+      <Route path="/dogindex" component={DogIndex} />
+      <Route path="/dogshow" component={DogShow} />
+      <Route path="/dognew" component={DogNew} />
+      <Route path="/dogedit" component={DogEdit} />
       <Route component={NotFound}/>
       </Switch>
       </Router>
 
       <Header/>
-      <h1>Welcome To Dog Tinder</h1>
       <Home/>
       <DogIndex/> 
       <DogShow/>
