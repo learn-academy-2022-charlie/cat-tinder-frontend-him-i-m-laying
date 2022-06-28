@@ -7,7 +7,7 @@ import DogEdit from './pages/DogEdit'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
-import mockDogs from './mockDogs'
+import mockDogs from './mockDogs.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -23,10 +23,10 @@ export default class App extends Component {
       }
   render() {
     return (
-      <> 
-      <h1>Welcome To Dog Tinder</h1>
-
       <Router>
+      <Header/>
+      <h1>Welcome To Dog Tinder</h1>
+    
       <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/dogindex" component={DogIndex} />
@@ -35,15 +35,14 @@ export default class App extends Component {
       <Route path="/dogedit" component={DogEdit} />
       <Route component={NotFound}/>
       </Switch>
-      </Router>
-
-      <Header/>
+      
       <Home/>
       <DogIndex/> 
       <DogShow/>
       <DogNew/>
       <Footer/>
-      </>
+      </Router>
+       
     )
   }
 }
