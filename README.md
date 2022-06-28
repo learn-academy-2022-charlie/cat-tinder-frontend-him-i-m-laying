@@ -34,15 +34,12 @@ As a developer, I can add Reactstrap to my application.
         Switch
         }  from 'react-router-dom'
 
-As a developer, I can use Reactstrap to create the header UI.
-As a developer, I can use Reactstrap to create the footer UI.
+As a developer, I can use Reactstrap to create the header UI and footer UI.
+
 As a developer, I can import the header and footer to all the page components.
 As a developer, I can add some styling to the Home component.
 As a developer, I can add react-router-dom@5.3.0 to my application.
 As a developer, I can add routes to be able to navigate manually to all pages.
-
-
-
 
 
 # Getting Started with Create React App

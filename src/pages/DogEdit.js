@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
-export default class CatEdit extends Component {
+export default class DogEdit extends Component {
   render() {
     return (
+      <>
       <div>DogEdit</div>
+   
+      </>
     )
   }
 }
