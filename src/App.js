@@ -5,19 +5,20 @@ import Home from './pages/Home'
 import DogIndex from './pages/DogIndex'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
-// import mockDogs from './mockDog.js'
+import mockDogs from './mockDogs'
 
 // class App extends Component{
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//       dogs: mockDogs
-//     }
-//   }
+//   
 
 
 
 export default class App extends Component {
+  constructor(props){
+        super(props)
+        this.state = {
+          dogs: mockDogs
+        }
+      }
   render() {
     return (
       <> 
