@@ -1,3 +1,73 @@
+As a developer, I can create a directory in src called pages, components, and assets. ✅  
+--Created new directories in src with pages, components, and assets.
+
+As a developer, I can create a file called Header.js, Footer.js, Home.js, CatIndex.js, CatShow.js, CatNew.js, CatEdit.js, NotFound.js in the pages directory.✅ 
+-- See Trello screen shot 
+
+As a developer, I can add a file to src called mockDogs.js and add an array of dog objects.✅ 
+-- mock info from syllabus and edited for our needs
+
+As a developer, I can add Reactstrap to my application.✅ 
+   This adds the dependencies for Reactstrap and Bootstrap via yarn 
+        $ yarn add bootstrap
+        $ yarn add reactstrap
+        
+    This adds an import to index.js 
+        Add to src/index.js: import 'bootstrap/dist/css/bootstrap.min.css'
+   
+    This adds the react-router to the package.json file.
+        $ yarn add react-router-dom@5.3.0
+
+    This allows us to import routing components to our application.
+        import {
+        BrowserRouter as Router,
+        Route,
+        Switch
+        }  from 'react-router-dom'
+
+As a developer, I can use Reactstrap to create the header UI and footer UI.✅ 
+    create a new header and footer .css and add text justification and color 
+    .Footer{
+        color:red;
+        justify-content: center;}
+    .Header{
+        color:blue;
+        justify-content: center;} 
+
+As a developer, I can import the header and footer to all the page components.✅ 
+    insert into the page routes:
+    import './Footer.css'
+    import './Header.css'
+
+As a developer, I can add some styling to the Home component.✅ 
+    .App {
+    color:darkviolet;
+    text-align: center;}
+
+As a developer, I can add routes to be able to navigate manually to all pages.✅ 
+      <Route exact path="/" component={Home} />
+      <Route path="/dogindex" component={DogIndex} />
+      <Route path="/dogshow" component={DogShow} />
+      <Route path="/dognew" component={DogNew} />
+      <Route path="/dogedit" component={DogEdit} />
+      <Route component={NotFound}/>
+
+Challenge: Cat Tinder Tests
+Add Enzyme to your application✅ 
+Add a test file for the Home, Header, Footer, and NotFound components with the .test.js extension.
+Create a test for each page, checking that the page is rendering by asserting against a single JSX element.
+
+
+Stretch Challenges
+As a developer, I can make my tests more DRY by declaring reusable variables in global scope.
+Create an additional test for the component Home.js that checks for the first img tag and all of its props.
+Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
