@@ -8,6 +8,7 @@ import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
 import mockDogs from './mockDogs.js'
+import './App.css'
 import {
   BrowserRouter as Router,
   Route,
@@ -25,7 +26,7 @@ export default class App extends Component {
     return (
       <Router>
       <Header/>
-      <h1>Welcome To Dog Tinder</h1>
+      <h1 className="App">Welcome To Dog Tinder</h1>
     
       <Switch>
       <Route exact path="/" component={Home} />
