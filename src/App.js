@@ -24,23 +24,23 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-      <Header/>
-      <h1>Welcome To Dog Tinder</h1>
+          <Header/>
+          <h1>Welcome To Dog Tinder</h1>
     
       <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/dogindex" component={DogIndex} />
-      <Route path="/dogshow" component={DogShow} />
-      <Route path="/dognew" component={DogNew} />
-      <Route path="/dogedit" component={DogEdit} />
-      <Route component={NotFound}/>
+          <Route exact path="/" component={Home} />
+          <Route path="/dogindex" component={DogIndex} />
+          <Route path="/dogshow" component={DogShow} />
+          <Route path="/dognew" component={DogNew} />
+          <Route path="/dogedit" component={DogEdit} />
+          <Route component={NotFound}/>
       </Switch>
       
-      <Home/>
-      <DogIndex/> 
-      <DogShow/>
-      <DogNew/>
-      <Footer/>
+          <Home/>
+          <DogIndex/> 
+          <DogShow/>
+          <DogNew/>
+          <Footer/>
       </Router>
        
     )
