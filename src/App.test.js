@@ -15,19 +15,24 @@ Enzyme.configure({adapter: new Adapter()})
 
 // describe takes two arguments 
 describe("when App.js renders to the user, ", ()=> {
-  it("it displays a header",()=> {
+  it("it displays a header",() => {
     const appRender = shallow(<App/>)
     const appHeaderRender = appRender.find("Header")
     expect(appHeaderRender.length).toEqual(1)
   })
-  it("it displays a footer",()=> {
+  it("it displays a footer",() => {
     const appRender = shallow(<App/>)
     const appFooterRender = appRender.find("Footer")
     expect(appFooterRender.length).toEqual(1)
   })
-  it("provides a path to the home component",()=> {
+  it("provides a path to the home component",() => {
     const appRender = shallow(<App/>)
     const renderedHomePath = appRender.find('[path="/"]')
     expect(renderedHomePath.length).toEqual(1)
   })
+  it("provides a path to the not found component",() => {
+    const appRender = shallow(<App/>) 
+    const renderedNotFoundPath = appRender.find('[path="/"]')
+    expect(renderedNotFoundPath.length).toEqual(1)
+  } )
 })
