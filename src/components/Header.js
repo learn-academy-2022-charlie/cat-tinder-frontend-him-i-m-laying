@@ -5,7 +5,9 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-      <div>Header</div>
+      <div>
+        <h1 class= "Header">Header</h1>
+        </div>
       {/* <NavLink to = '/'>
       </NavLink>
       <NavLink to = '/dogindex'>
