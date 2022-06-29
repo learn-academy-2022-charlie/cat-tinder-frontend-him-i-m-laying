@@ -54,15 +54,60 @@ As a developer, I can add routes to be able to navigate manually to all pages.�
 
 Challenge: Cat Tinder Tests
 Add Enzyme to your application✅ 
-Add a test file for the Home, Header, Footer, and NotFound components with the .test.js extension.
+    $ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
+    $ yarn test
+
+Add a test file for the Home, Header, Footer, and NotFound components with the test.js extension.
+    src > components > Footer.test.js
+    src > components > Home.test.js
+    src > components > Header.test.js
+    src > components > NotFound.test.js 
+
 Create a test for each page, checking that the page is rendering by asserting against a single JSX element.
 
+    describe("When Header renders", ()=>{
+    let headerRender
+    beforeEach(() => {
+      headerRender = shallow(<Header />)
+    })
+    it("displays a header in h4", () => {
+      const headerTitleRender = headerRender.find("h4")
+      expect(headerTitleRender.length).toEqual(1)
+    })
+  })
+  -----> output: PASS  src/components/Header.test.js
 
-Stretch Challenges
 As a developer, I can make my tests more DRY by declaring reusable variables in global scope.
-Create an additional test for the component Home.js that checks for the first img tag and all of its props.
-Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
+--Use the App.js to call on the separate components and pages for the test 
+    --App.js has all the components and pages that were modified 
 
+    describe("when App.js renders to the user, ", ()=> {
+    it("it displays a *Element*",() => {
+        const appRender = shallow(<App/>)
+        const app*Element*Render = appRender.find("*Element*")
+        expect(app*Element*Render.length).toEqual(1)
+    })
+Example:
+    describe("When NotFound renders", ()=>{
+        let notFoundRender
+        beforeEach(() => {
+            notFoundRender = shallow(<NotFound />)
+        })
+        it("displays a not found text in h1", () => {
+            const notFoundHeaderRender = notFoundRender.find("h1").text()
+            expect(notFoundHeaderRender).toEqual("This page is Not Found, Please Try again.")
+        })
+    })
+
+Create an additional test for the component Home.js that checks for the first img tag and all of its props.
+--Added an additional part of the test
+     it("renders an image", () => {
+      const homeImageRender = homeRender.find("img").prop("id", "src")
+      expect(homeImageRender).toEqual("home-dog")
+     })
+
+Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
+---not complete---
 
 
 
