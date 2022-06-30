@@ -5,7 +5,7 @@ export default class Footer extends Component {
     return (
       <div>
         {/* insert github links and logo on our initials */}
-        <h4 class= "Footer">Created by DC and FR</h4></div>
+        <h4 className = "Footer">Created by DC and FR</h4></div>
 
     )
   }

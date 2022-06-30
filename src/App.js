@@ -30,13 +30,12 @@ export default class App extends Component {
     
       <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/dogindex"render={(props) => <DogIndex dogs={this.state.dogs} />} />  
+          <Route path="/dogindex" render={(props) => <DogIndex dogs={this.state.dogs} />} />  
           <Route path="/dogshow/:id" render={(props) => {
             let id = props.match.params.id
             let dog = this.state.dogs.find(dog => dog.id === +id)
             return <DogShow dog={dog}/> 
-                     }} />
-                     
+          }} />
           <Route path="/dognew" component={DogNew} />
           <Route path="/dogedit" component={DogEdit} />
           <Route component={NotFound}/>
