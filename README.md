@@ -109,7 +109,37 @@ Create an additional test for the component Home.js that checks for the first im
 Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
 ---not complete---
 
+As a developer, I can pass the cat mock data in state to my index component.
+-- Add to App.js 
+    <Route path="/dogindex" render={(props) => <DogIndex dogs={this.state.dogs} />} />  
 
+As a user, I can see a page that lists of all the cat names.
+-- dogindex 
+    <Col sm="6">
+    {dogs && dogs.map((dog)=> {
+      return(
+      <Card body key={dog.id}>
+        <CardTitle>
+          <h4>{dog.name}</h4>
+        </CardTitle>
+        <NavLink to={`/dogshow/${dog.id}`}>
+          <Button> More Info </Button>
+        </NavLink>
+      </Card>
+      )
+      })}
+    </Col>
+
+As a developer, I have test coverage on my index component.
+ it("displays the motto", () => {
+      const indexMottoRender = indexRender.find("h3")
+      expect(indexMottoRender.length).toEqual(1)
+    }) 
+    
+As a developer, I can refactor the show route to pass the param of id for one cat.
+As a user, I can see a page featuring all the information for one cat.
+As a user, I can click on a cat name and be taken to a page that shows me all the information about that cat.
+As a developer, I have test coverage on my show component.
 
 
 
