@@ -4,14 +4,16 @@ import{ Card, CardTitle, CardText, Col} from 'reactstrap'
 
 export default class DogShow extends Component {
   render() {
+    const {dog} = this.props
+    console.log(dog.name)
     return (
   <>
     <div>
       <Col sm="6">
-        <Card body>
-          <CardTitle>Hey! My name is {this.props.dog.name}!</CardTitle>
-            <img src={this.props.dog.image} alt="dog" />
-          <CardText>I am {this.props.dog.age} years old. I enjoy {this.props.dog.enjoys}.</CardText>
+        <Card body key={dog.id}>
+          <CardTitle tag= "h1">Hey! My name is {dog.name}</CardTitle>
+            <img src={dog.image} alt="dog" />
+          <CardText>I am {dog.age} years old. I enjoy {dog.enjoys}.</CardText>
         </Card>
       </Col>
     </div>
