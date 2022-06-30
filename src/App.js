@@ -15,12 +15,16 @@ import {
   Switch
 } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+
 export default class App extends Component {
   constructor(props){
         super(props)
         this.state = {
           dogs: mockDogs
         }
+      }
+      createDog = (dog) => {
+        console.log(dog)
       }
   render() {
     return (
@@ -30,13 +34,16 @@ export default class App extends Component {
     
       <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/dogindex" render={(props) => <DogIndex dogs={this.state.dogs} />} />  
+          <Route path="/dogindex" render={() => <DogIndex dogs={this.state.dogs} />} />  
           <Route path="/dogshow/:id" render={(props) => {
             let id = props.match.params.id
             let dog = this.state.dogs.find(dog => dog.id == id)
             return <DogShow dog={dog}/> 
           }} />
-          <Route path="/dognew" component={DogNew} />
+          <Route
+            path="/dognew"
+            render={(props) => <DogNew createDog={this.createDog} />}
+          />
           <Route path="/dogedit" component={DogEdit} />
           <Route component={NotFound}/>
       </Switch>

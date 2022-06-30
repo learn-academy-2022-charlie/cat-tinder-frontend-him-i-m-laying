@@ -1,31 +1,34 @@
-As a developer, I can create a directory in src called pages, components, and assets. ✅  
---Created new directories in src with pages, components, and assets.
+create a directory in src called pages, components, and assets. ✅  
 
-As a developer, I can create a file called Header.js, Footer.js, Home.js, CatIndex.js, CatShow.js, CatNew.js, CatEdit.js, NotFound.js in the pages directory.✅ 
+create a file called Header.js, Footer.js, Home.js, CatIndex.js, CatShow.js, CatNew.js, CatEdit.js, NotFound.js in the pages directory.✅ 
 -- See Trello screen shot 
 
-As a developer, I can add a file to src called mockDogs.js and add an array of dog objects.✅ 
+add a file to src called mockDogs.js and add an array of dog objects.✅ 
 -- mock info from syllabus and edited for our needs
 
-As a developer, I can add Reactstrap to my application.✅ 
+add Reactstrap to my application.✅ 
+  ```
    This adds the dependencies for Reactstrap and Bootstrap via yarn 
         $ yarn add bootstrap
         $ yarn add reactstrap
-        
+  ```
+  ```      
     This adds an import to index.js 
         Add to src/index.js: import 'bootstrap/dist/css/bootstrap.min.css'
-   
+   ```
+
     This adds the react-router to the package.json file.
         $ yarn add react-router-dom@5.3.0
-
+```
     This allows us to import routing components to our application.
         import {
         BrowserRouter as Router,
         Route,
         Switch
         }  from 'react-router-dom'
-
-As a developer, I can use Reactstrap to create the header UI and footer UI.✅ 
+```
+use Reactstrap to create the header UI and footer UI.✅ 
+```
     create a new header and footer .css and add text justification and color 
     .Footer{
         color:red;
@@ -33,38 +36,43 @@ As a developer, I can use Reactstrap to create the header UI and footer UI.✅ 
     .Header{
         color:blue;
         justify-content: center;} 
-
-As a developer, I can import the header and footer to all the page components.✅ 
+```
+import the header and footer to all the page components.✅ 
+```
     insert into the page routes:
     import './Footer.css'
     import './Header.css'
-
-As a developer, I can add some styling to the Home component.✅ 
+```
+add some styling to the Home component.✅ 
+```   
     .App {
     color:darkviolet;
     text-align: center;}
-
-As a developer, I can add routes to be able to navigate manually to all pages.✅ 
+```
+add routes to be able to navigate manually to all pages.✅ 
+```
       <Route exact path="/" component={Home} />
       <Route path="/dogindex" component={DogIndex} />
       <Route path="/dogshow" component={DogShow} />
       <Route path="/dognew" component={DogNew} />
       <Route path="/dogedit" component={DogEdit} />
       <Route component={NotFound}/>
+```
 
-Challenge: Cat Tinder Tests
 Add Enzyme to your application✅ 
-    $ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
-    $ yarn test
-
-Add a test file for the Home, Header, Footer, and NotFound components with the test.js extension.
+```
+    yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
+    yarn test
+```
+Add a test file for the Home, Header, Footer, and NotFound components with the test.js extension.✅ 
+```
     src > components > Footer.test.js
     src > components > Home.test.js
     src > components > Header.test.js
     src > components > NotFound.test.js 
-
-Create a test for each page, checking that the page is rendering by asserting against a single JSX element.
-
+```
+Create a test for each page, checking that the page is rendering by asserting against a single JSX element.✅ 
+```
     describe("When Header renders", ()=>{
     let headerRender
     beforeEach(() => {
@@ -76,8 +84,9 @@ Create a test for each page, checking that the page is rendering by asserting ag
     })
   })
   -----> output: PASS  src/components/Header.test.js
-
-As a developer, I can make my tests more DRY by declaring reusable variables in global scope.
+```
+make tests more DRY by declaring reusable variables in global scope.✅ 
+```
 --Use the App.js to call on the separate components and pages for the test 
     --App.js has all the components and pages that were modified 
 
@@ -98,22 +107,26 @@ Example:
             expect(notFoundHeaderRender).toEqual("This page is Not Found, Please Try again.")
         })
     })
-
-Create an additional test for the component Home.js that checks for the first img tag and all of its props.
+```
+Create an additional test for the component Home.js that checks for the first img tag and all of its props.✅ 
+```
 --Added an additional part of the test
      it("renders an image", () => {
       const homeImageRender = homeRender.find("img").prop("id", "src")
       expect(homeImageRender).toEqual("home-dog")
      })
-
-Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.
+```
+Create an additional test for the component Header.js that checks for a tag by its class name to contain some text.✅ 
+```
 ---not complete---
-
-As a developer, I can pass the cat mock data in state to my index component.
+````
+pass the mock data in state to my index component.✅ 
+```
 -- Add to App.js 
     <Route path="/dogindex" render={(props) => <DogIndex dogs={this.state.dogs} />} />  
-
-As a user, I can see a page that lists of all the cat names.
+```
+see a page that lists of all the cat names.✅ 
+```
 -- dogindex 
     <Col sm="6">
     {dogs && dogs.map((dog)=> {
@@ -129,17 +142,82 @@ As a user, I can see a page that lists of all the cat names.
       )
       })}
     </Col>
-
-As a developer, I have test coverage on my index component.
+```
+ have test coverage on my index component.✅ 
+ ```
  it("displays the motto", () => {
       const indexMottoRender = indexRender.find("h3")
       expect(indexMottoRender.length).toEqual(1)
     }) 
-    
-As a developer, I can refactor the show route to pass the param of id for one cat.
-As a user, I can see a page featuring all the information for one cat.
-As a user, I can click on a cat name and be taken to a page that shows me all the information about that cat.
-As a developer, I have test coverage on my show component.
+```
+refactor the show route to pass the param of id for one cat.✅ 
+```
+    let id = props.match.params.id
+    let dog = this.state.dogs.find(dog => dog.id == id)
+```
+see a page featuring all the information for one cat.✅ 
+```
+    <CardTitle tag= "h1">Hey! My name is {dog.name}</CardTitle>
+        <img src={dog.image} alt="dog" />
+    <CardText>I am {dog.age} years old. I enjoy {dog.enjoys}.</CardText>
+```
+click on a cat name and be taken to a page that shows me all the information about that cat.✅ 
+```
+    <NavLink to={`/dogshow/${dog.id}`}>
+        <Button> More Info </Button>
+    </NavLink>
+```
+As a developer, I have test coverage on my show component.✅ 
+```
+    it("displays text in a card", () => {
+      const showDivRender = showRender.find("Card")
+      expect(showDivRender.length).toEqual(1)
+    }) 
+```
+fill out a form to add a new cat.✅ 
+```
+    <Form>
+    <FormGroup>
+    <Label for="name">Name</Label>
+    <Input 
+    type="text"
+    name="name"/>
+    </FormGroup>
+    </Form>
+
+```
+store the cat object in state.✅ 
+```
+    this.state = {
+        newCat: {
+        name: "",
+        age: "",
+        enjoys: "",
+        image: ""
+        }
+    }
+```
+pass the cat object to App.js on submit and see the cat object logged in the console.✅ 
+```
+{name: 'asdf', age: 'dfa', enjoys: 'fasdfas', image: 'asdf'}
+age: "dfa"
+enjoys: "fasdfas"
+image: "asdf"
+name: "asdf"
+```
+be routed to the index page after I submit the new cat form.✅ 
+```
+{this.state.submitted && <Redirect to="/catindex" />}
+```
+have test coverage on my new page.✅ 
+```
+    it("displays the new dog form", () => {
+      const newFormRender = newRender.find("Form")
+      expect(newFormRender.length).toEqual(1)
+    }) 
+```
+
+
 
 
 
