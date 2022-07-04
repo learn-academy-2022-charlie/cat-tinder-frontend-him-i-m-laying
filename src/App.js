@@ -20,8 +20,18 @@ export default class App extends Component {
   constructor(props){
         super(props)
         this.state = {
-          dogs: mockDogs
+          // dogs: mockDogs
+          dogs: []
         }
+      }
+      componentWillMount() {
+        this.readDog()
+      }
+      readDog = () => {
+        fetch("http://localhost:3000/dogs")
+        .then(response => response.json())
+        .then(dogsArray => this.setState({ dogsArray}))
+        .catch(errors => console.log("Dog Read Errors:", errors))
       }
       createDog = (dog) => {
         console.log(dog)
