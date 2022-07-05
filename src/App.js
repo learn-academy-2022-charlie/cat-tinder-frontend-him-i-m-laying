@@ -7,7 +7,6 @@ import DogEdit from './pages/DogEdit'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
-import mockDogs from './mockDogs.js'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -18,14 +17,40 @@ import { NavLink } from 'react-router-dom'
 
 export default class App extends Component {
   constructor(props){
-        super(props)
-        this.state = {
-          dogs: mockDogs
-        }
-      }
-      createDog = (dog) => {
-        console.log(dog)
-      }
+    super(props)
+    this.state = {
+      // dogs: mockDogs
+      dogs: []
+    } 
+  }
+
+  componentDidMount() {
+    this.readDog()
+  }
+  readDog = () => {
+    fetch("http://localhost:3000/dogs")
+    .then(response => response.json())
+    .then(dogArray => this.setState({dogs: dogArray}))
+    .catch(errors => console.log("Dog Read Errors:", errors))
+  }
+  createDog = (newDog) => {
+    fetch("http://localhost:3000/dogs", {
+      body: JSON.stringify(newDog),
+      headers: {"Content-Type": "application/json"},
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("App.js createDog errors:", errors))
+  }
+  updateDog = (editDog) => {
+    console.log("doggo updated:", editDog)
+  }
+  deleteDog = (dogId) => {
+    console.log("Doggo was deleted", dogId)
+  }
+  
+  
   render() {
     return (
     <Router>
@@ -33,16 +58,20 @@ export default class App extends Component {
           <h1>Welcome To Dog Tinder</h1>
     
       <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/dogindex" render={() => <DogIndex dogs={this.state.dogs} />} />  
-          <Route path="/dogshow/:id" render={(props) => {
+          <Route exact path="/" 
+            component={Home} />
+          <Route path="/dogindex" 
+            render={() => <DogIndex dogs={this.state.dogs} />} />  
+          <Route path="/dogshow/:id" 
+            render={(props) => {
             let id = props.match.params.id
             let dog = this.state.dogs.find(dog => dog.id == id)
-            return <DogShow dog={dog}/> 
+            return <DogShow dog={dog} deleteDog={this.deleteDog}/> 
           }} />
           <Route
             path="/dognew"
-            render={(props) => <DogNew createDog={this.createDog} />}
+            render={(props) => <DogNew 
+            createDog={this.createDog} />}
           />
           <Route path="/dogedit" component={DogEdit} />
           <Route component={NotFound}/>

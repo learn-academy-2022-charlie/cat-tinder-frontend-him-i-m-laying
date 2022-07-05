@@ -4,15 +4,15 @@ import { NavLink } from 'react-router-dom'
 
 export default class DogIndex extends Component {
   render() {
-    const {dogs} = this.props
+    const { dogs } = this.props
     return (
     <>
     <h3>Who Let the Dogs out ?</h3>
     <br />
     <Col sm="6">
-    {dogs && dogs.map((dog)=> {
+    {dogs && dogs.map((dog, index)=> {
       return(
-      <Card body key={dog.id}>
+      <Card body key={index}>
         <CardTitle>
           <h4>{dog.name}</h4>
         </CardTitle>
