@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export default class DogIndex extends Component {
   render() {
-    const {dogs} = this.props
+    const { dogs } = this.props
     return (
     <>
     <h3>Who Let the Dogs out ?</h3>

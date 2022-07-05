@@ -35,8 +35,17 @@ export default class App extends Component {
     .catch(errors => console.log("Dog Read Errors:", errors))
   }
   createDog = (newDog) => {
-    console.log(newDog)
+    fetch("http://localhost:3000/dogs", {
+      body: JSON.stringify(newDog),
+      headers: {"Content-Type": "application/json"},
+      method: "POST"
+    })
+    
   }
+  updateDog = (editDog) => {
+    console.log("dog created:")
+    }
+  
   render() {
     return (
     <Router>
@@ -44,17 +53,20 @@ export default class App extends Component {
           <h1>Welcome To Dog Tinder</h1>
     
       <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/dogindex" render={() => <DogIndex dogs={this.state.dogs} />} />  
-          <Route path="/dogshow/:id" render={(props) => {
+          <Route exact path="/" 
+            component={Home} />
+          <Route path="/dogindex" 
+            render={() => <DogIndex dogs={this.state.dogs} />} />  
+          <Route path="/dogshow/:id" 
+            render={(props) => {
             let id = props.match.params.id
             let dog = this.state.dogs.find(dog => dog.id == id)
-            return <DogShow dog={dog}/> 
+            return <DogShow dog={dog} deleteDog={this.deleteDog}/> 
           }} />
-    
           <Route
             path="/dognew"
-            render={(props) => <DogNew createDog={this.createDog} />}
+            render={(props) => <DogNew 
+            createDog={this.createDog} />}
           />
           <Route path="/dogedit" component={DogEdit} />
           <Route component={NotFound}/>
