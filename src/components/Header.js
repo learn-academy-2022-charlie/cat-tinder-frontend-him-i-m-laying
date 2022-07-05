@@ -29,6 +29,12 @@ export default class Header extends Component {
   render() {
     return (
       <div>
+        {/* insert nav bar with home, rules, my profile  */}
+        
+        <h4 className= "Header">NavBar goes here</h4>
+        </div>
+      </header>
+
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Home</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -58,6 +64,7 @@ export default class Header extends Component {
           </Collapse>
         </Navbar>
       </div>
+
     )
   }
 }

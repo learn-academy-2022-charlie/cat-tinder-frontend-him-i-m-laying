@@ -1,2 +1,7 @@
-.Header{color:blue;
-justify-content: center;}
+.Header{color:blanchedalmond;
+  display: flex;
+  justify-content:center;
+  background-color:darkmagenta;
+  height: 200px;
+scroll-padding: center;
+}

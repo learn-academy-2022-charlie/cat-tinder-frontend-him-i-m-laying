@@ -174,19 +174,40 @@ As a developer, I have test coverage on my show component.✅ 
       expect(showDivRender.length).toEqual(1)
     }) 
 ```
-fill out a form to add a new cat.✅ 
+fill out a form to add a new dog.✅ 
 ```
     <Form>
-    <FormGroup>
+  <FormGroup>
     <Label for="name">Name</Label>
-    <Input 
-    type="text"
-    name="name"/>
-    </FormGroup>
-    </Form>
-
+    <Input
+      type="text"
+      name="name"
+    />
+  </FormGroup>
+  <FormGroup>
+    <Label for="age">Age</Label>
+    <Input
+      type="number"
+      name="age"
+    />
+  </FormGroup>
+  <FormGroup>
+    <Label for="enjoys">Enjoys</Label>
+    <Input
+      type="text"
+      name="enjoys"
+    />
+  </FormGroup>
+  <FormGroup>
+    <Label for="image">Image URL</Label>
+    <Input
+      type="text"
+      name="image"
+    />
+  </FormGroup>
+</Form>
 ```
-store the cat object in state.✅ 
+store the dog object in state.✅ 
 ```
     this.state = {
         newCat: {
