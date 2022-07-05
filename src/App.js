@@ -7,7 +7,6 @@ import DogEdit from './pages/DogEdit'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
-import mockDogs from './mockDogs.js'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -40,11 +39,17 @@ export default class App extends Component {
       headers: {"Content-Type": "application/json"},
       method: "POST"
     })
-    
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("App.js createDog errors:", errors))
   }
   updateDog = (editDog) => {
-    console.log("dog created:")
-    }
+    console.log("doggo updated:", editDog)
+  }
+  deleteDog = (dogId) => {
+    console.log("Doggo was deleted", dogId)
+  }
+  
   
   render() {
     return (
