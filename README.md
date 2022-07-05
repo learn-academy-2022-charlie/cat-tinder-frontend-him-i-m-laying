@@ -125,7 +125,7 @@ pass the mock data in state to my index component.✅ 
 -- Add to App.js 
     <Route path="/dogindex" render={(props) => <DogIndex dogs={this.state.dogs} />} />  
 ```
-see a page that lists of all the cat names.✅ 
+see a page that lists of all the dog names.✅ 
 ```
 -- dogindex 
     <Col sm="6">
