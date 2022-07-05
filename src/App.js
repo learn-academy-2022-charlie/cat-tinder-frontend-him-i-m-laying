@@ -7,7 +7,6 @@ import DogEdit from './pages/DogEdit'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
-import mockDogs from './mockDogs.js'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -18,24 +17,25 @@ import { NavLink } from 'react-router-dom'
 
 export default class App extends Component {
   constructor(props){
-        super(props)
-        this.state = {
-          // dogs: mockDogs
-          dogs: []
-        }
-      }
-      componentWillMount() {
-        this.readDog()
-      }
-      readDog = () => {
-        fetch("http://localhost:3000/dogs")
-        .then(response => response.json())
-        .then(dogsArray => this.setState({ dogsArray}))
-        .catch(errors => console.log("Dog Read Errors:", errors))
-      }
-      createDog = (dog) => {
-        console.log(dog)
-      }
+    super(props)
+    this.state = {
+      // dogs: mockDogs
+      dogs: []
+    }
+  }
+
+  componentDidMount() {
+    this.readDog()
+  }
+  readDog = () => {
+    fetch("http://localhost:3000/dogs")
+    .then(response => response.json())
+    .then(dogsArray => this.setState({dogs: dogsArray}))
+    .catch(errors => console.log("Dog Read Errors:", errors))
+  }
+  createDog = (dog) => {
+    console.log(dog)
+  }
   render() {
     return (
     <Router>
