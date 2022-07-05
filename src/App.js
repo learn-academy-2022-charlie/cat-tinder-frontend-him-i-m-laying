@@ -7,6 +7,7 @@ import DogEdit from './pages/DogEdit'
 import DogShow from './pages/DogShow'
 import DogNew from './pages/DogNew'
 import NotFound from './pages/NotFound'
+import mockDogs from './mockDogs.js'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -21,7 +22,7 @@ export default class App extends Component {
     this.state = {
       // dogs: mockDogs
       dogs: []
-    }
+    } 
   }
 
   componentDidMount() {
@@ -30,11 +31,11 @@ export default class App extends Component {
   readDog = () => {
     fetch("http://localhost:3000/dogs")
     .then(response => response.json())
-    .then(dogsArray => this.setState({dogs: dogsArray}))
+    .then(dogArray => this.setState({dogs: dogArray}))
     .catch(errors => console.log("Dog Read Errors:", errors))
   }
-  createDog = (dog) => {
-    console.log(dog)
+  createDog = (newDog) => {
+    console.log(newDog)
   }
   render() {
     return (
@@ -50,6 +51,7 @@ export default class App extends Component {
             let dog = this.state.dogs.find(dog => dog.id == id)
             return <DogShow dog={dog}/> 
           }} />
+    
           <Route
             path="/dognew"
             render={(props) => <DogNew createDog={this.createDog} />}
