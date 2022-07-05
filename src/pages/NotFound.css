@@ -1,3 +1,5 @@
-.NotFound{color:red;
-    justify-content: center;}
-    
+.NotFound{color:green;
+    display:flex;
+    justify-content: bottom;
+    vertical-align: bottom;}
+   

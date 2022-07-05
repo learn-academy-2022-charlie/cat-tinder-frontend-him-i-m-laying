@@ -9,6 +9,7 @@ export default class Header extends Component {
       <header>
       <div>
         {/* insert nav bar with home, rules, my profile  */}
+        
         <h4 className= "Header">NavBar goes here</h4>
         </div>
       </header>
