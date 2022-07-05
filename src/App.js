@@ -55,7 +55,7 @@ export default class App extends Component {
     return (
     <Router>
           <Header/>
-          <h1>Welcome To Dog Tinder</h1>
+          <h1>Dog Tinder</h1>
     
       <Switch>
           <Route exact path="/" 
