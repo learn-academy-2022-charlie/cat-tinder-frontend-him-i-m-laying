@@ -17,28 +17,6 @@ import { NavLink } from 'react-router-dom'
 
 export default class App extends Component {
   constructor(props){
-        super(props)
-        this.state = {
-          // dogs: mockDogs
-          dogs: []
-        }
-      }
-      componentWillMount() {
-        this.readDog()
-      }
-      readDog = () => {
-        fetch("http://localhost:3000/dogs")
-        .then(response => response.json())
-        .then(dogsArray => this.setState({ dogsArray}))
-        .catch(errors => console.log("Dog Read Errors:", errors))
-      }
-      createDog = (dog) => {
-        console.log(dog)
-      }
-      updateDog = (dog, id) =>{
-        console.log("dog:",dog)
-        console.log("id:");
-      }
     super(props)
     this.state = {
       // dogs: mockDogs
@@ -62,7 +40,7 @@ export default class App extends Component {
       method: "POST"
     })
     .then(response => response.json())
-    .then(payload => this.readCat())
+    .then(dogArray => this.readDog())
     .catch(errors => console.log("App.js createDog errors:", errors))
   }
   updateDog = (editDog) => {
@@ -72,14 +50,12 @@ export default class App extends Component {
     console.log("Doggo was deleted", dogId)
   }
   
-    render() {
+  
+  render() {
     return (
     <Router>
           <Header/>
-          <h1>Who Let The Dogs Out ?  Dog Tinder</h1>
-          <h2> Find Your best friend here</h2>
-
-          <h1>Dog Tinder</h1>
+          <h1>Dog Tinder, a place to catch a bone</h1>
     
       <Switch>
           <Route exact path="/" 
@@ -89,16 +65,9 @@ export default class App extends Component {
           <Route path="/dogshow/:id" 
             render={(props) => {
             let id = props.match.params.id
-            let dog = this.state.dogs.find(dog => dog.id === id)
-            return <DogShow dog={dog}/> 
             let dog = this.state.dogs.find(dog => dog.id == id)
             return <DogShow dog={dog} deleteDog={this.deleteDog}/> 
           }} />
-          <Route path="/dogedit/:id" render={(props) => {
-          let id = props.match.params.id
-          let dog = this.state.dogs.find(dog => dog.id === +id)
-            return <DogEdit updateDog={this.updateDog} dog={dog} />
-           }} />
           <Route
             path="/dognew"
             render={(props) => <DogNew 
